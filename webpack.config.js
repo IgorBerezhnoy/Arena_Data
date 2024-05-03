@@ -1,22 +1,21 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/index.tsx',
-  resolve:
-    {
-      extensions: ['.tsx', '.ts', '.js'],
-    },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'index-bundle.js'
+    filename: 'index-bundle.js',
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
+        loader: 'ts-loader',
       },
       {
         test: /\.js$/,
@@ -25,13 +24,13 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
-    })
-  ]
-};
+      template: './src/index.html',
+    }),
+  ],
+}
