@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker'
 
-const numberOfElements = 1 // Количество элементов
+const numberOfElements = 2 // Количество элементов
 const numberOfProperties = 10 // Количество свойств
 
 export const data: ElementType[] = []

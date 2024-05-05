@@ -1,6 +1,6 @@
 import { Model, createServer } from 'miragejs'
 
-import { data } from '../bd/bd.ts'
+import { data } from './bd/bd.ts'
 
 export function makeServer({ environment = 'test' } = {}) {
   return createServer({

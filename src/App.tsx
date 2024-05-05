@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import './styles/App.css'
+import s from './styles/App.module.css'
+// import * as s from './styles/App.module.css'
 
 export default function App() {
   const [users, setUsers] = useState([])
@@ -9,9 +10,14 @@ export default function App() {
     fetch('/api/users')
       .then(res => res.json())
       .then(json => {
-        console.log(json)
+        console.log(json.users[0].users)
       })
   }, [])
 
-  return <ul></ul>
+  return (
+    <>
+      aaa
+      <ul className={s.h1}>{JSON.stringify(s)}</ul>
+    </>
+  )
 }

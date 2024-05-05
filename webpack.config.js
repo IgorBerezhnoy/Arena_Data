@@ -1,36 +1,47 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: './src/index.tsx',
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
-  output: {
-    path: path.join(__dirname, '/dist'),
-    filename: 'index-bundle.js',
-  },
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: 'ts-loader',
+        test: /\.tsx?$/,
       },
       {
-        test: /\.js$/,
         exclude: /node_modules/,
+        test: /\.js$/,
         use: ['babel-loader'],
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(s*)css$/i,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              defaultExport: true,
+              esModule: true,
+            },
+          },
+          'css-loader',
+        ],
       },
     ],
+  },
+  output: {
+    filename: 'index-bundle.js',
+    path: path.join(__dirname, '/dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    new MiniCssExtractPlugin(),
   ],
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
 }
