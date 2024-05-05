@@ -5,16 +5,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'prettier/prettier',
-    'plugin:import/recommended',
-    'plugin:import/typescript',
-    'plugin:prettier/recommended',
-    'plugin:perfectionist/recommended-natural',
-  ],
+  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react/jsx-runtime', 'prettier/prettier', 'plugin:import/recommended', 'plugin:import/typescript', 'plugin:prettier/recommended', 'plugin:perfectionist/recommended-natural', 'plugin:storybook/recommended'],
   overrides: [
     {
       files: ['**/*.stories.tsx', '**/*.test.tsx'],
