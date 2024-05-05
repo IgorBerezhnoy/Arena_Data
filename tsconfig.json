@@ -9,5 +9,9 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "Node",
     "experimentalDecorators": true
+  },
+  "baseUrl": ".",
+  "paths": {
+    "@app/*": ["src/*"]
   }
 }

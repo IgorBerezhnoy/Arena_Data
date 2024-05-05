@@ -9,7 +9,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
     'prettier/prettier',
     'plugin:import/recommended',
     'plugin:import/typescript',
@@ -18,10 +17,14 @@ module.exports = {
   ],
   overrides: [
     {
-      files: ['**/*.stories.tsx'],
+      files: ['**/*.stories.tsx', '**/*.test.tsx'],
       rules: {
         'no-console': 'off',
         'react-hooks/rules-of-hooks': 'off',
+      },
+      'plugins': ['jest'],
+      'env': {
+        'jest/globals': true,
       },
     },
   ],
