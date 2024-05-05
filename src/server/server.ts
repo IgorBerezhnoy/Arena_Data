@@ -1,6 +1,6 @@
 import { Model, createServer } from 'miragejs'
 
-import { data } from './bd/bd.ts'
+import { getDataFromBD } from './bd/bd.ts'
 
 export function makeServer({ environment = 'test' } = {}) {
   return createServer({
@@ -20,7 +20,7 @@ export function makeServer({ environment = 'test' } = {}) {
 
     seeds(server) {
       // @ts-ignore
-      server.create('user', { users: data })
+      server.create('user', { users: getDataFromBD() })
     },
   })
 }
