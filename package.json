@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "format": "prettier --write src"
   },
   "author": "",
   "license": "ISC",
@@ -36,6 +37,7 @@
     "i": "^0.3.7",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
+    "miragejs": "^0.1.48",
     "prettier": "3.2.5",
     "sass": "^1.76.0",
     "style-loader": "^4.0.0",
@@ -50,6 +52,7 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
+    "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-perfectionist": "^2.10.0",
     "jest-environment-jsdom": "^29.7.0",
     "react": "^16.14.0",
