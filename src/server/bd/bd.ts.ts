@@ -1,8 +1,8 @@
 import { faker, simpleFaker } from '@faker-js/faker'
 
 export const getDataFromBD = () => {
-  const numberOfElements = 2 // Количество элементов
-  const numberOfProperties = 20 // Количество свойств
+  const numberOfElements = 25 // Количество элементов
+  const numberOfProperties = 1000 // Количество свойств
 
   const data: dataType = { headers: [], users: [] }
 

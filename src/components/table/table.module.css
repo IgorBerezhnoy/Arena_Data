@@ -4,37 +4,6 @@
   text-align: left;
 }
 
-.userImg {
-  display: inline-block;
-
-  width: 40px;
-  height: 40px;
-  margin-right: 8px;
-
-  border-radius: 100%;
-}
-
-.imgAndName {
-  display: flex;
-  align-items: center;
-  margin-right: 32px;
-  padding: 5px 0 5px 16px;
-}
-
-.status {
-  display: inline-block;
-
-  width: 8px;
-  height: 8px;
-  margin-right: 8px;
-
-  border-radius: 100%;
-}
-
-.chip {
-  margin: 3px;
-}
-
 .tableRow {
   border-bottom: 1px solid black;
 }
@@ -53,23 +22,4 @@
 
 .tableCell {
   padding: 10px 20px 10px 0;
-}
-
-.responsibilities {
-  padding: 3px 0;
-}
-
-.seeMore {
-  display: inline;
-  padding: 0 0 0 2px;
-  text-decoration: underline;
-}
-
-.seeMoreBtnWrapper {
-  max-width: 302px;
-  transition: all 0.6s;
-}
-
-.ml_16 {
-  margin-left: 16px;
 }
