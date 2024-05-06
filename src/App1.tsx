@@ -82,23 +82,25 @@ export default function App1() {
     queryKey: ['users'],
   })
 
-  console.log(query)
   const users = [] as UserType[]
 
   query?.pages.forEach(el => {
     users.push(...el.users[0].users)
   })
-  const headers = query?.pages[0].users[0].headers ? query?.pages[0].users[0].headers : []
+  debugger
+  const headers = users.length > 0 ? Object.keys(users[0]) : []
   const usersList = (user: UserType) => {
     const jsx = []
 
     for (let i = 0; i < headers.length; i++) {
-      jsx.push(user[headers[i].title])
+      jsx.push(user[headers[i]])
     }
 
     return jsx
   }
   const data = users.map(el => usersList(el))
+
+  console.log(headers)
 
   return (
     <>

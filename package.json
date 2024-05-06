@@ -76,6 +76,7 @@
     "eslint-plugin-perfectionist": "^2.10.0",
     "jest-environment-jsdom": "^29.7.0",
     "react": "^16.14.0",
+    "react-content-loader": "^7.0.0",
     "react-dom": "^16.14.0",
     "react-query": "^3.39.3",
     "react-virtualized": "^9.22.5",

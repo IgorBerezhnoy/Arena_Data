@@ -5,20 +5,20 @@ import { clsx } from 'clsx'
 
 import s from './lists.module.css'
 
-import { Column } from '../table'
+import { Skeletons } from '../skeletons/skeletons'
 
 export const Lists = ({ data, headers }: Props) => {
   const Cell = ({ columnIndex, rowIndex, style }: CellProps) => {
     if (rowIndex === 0) {
       return (
         <div className={clsx(s.tableHeader, s.gridCell)} key={rowIndex + columnIndex} style={style}>
-          {headers[columnIndex].title}
+          {headers[columnIndex]}
         </div>
       )
-    } else if (rowIndex === data.length - 1) {
+    } else if (rowIndex === data.length - 2 || rowIndex === data.length - 1) {
       return (
         <div className={clsx(s.gridCell)} key={rowIndex + columnIndex} style={style}>
-          ....Loading
+          <Skeletons />
         </div>
       )
     } else {
@@ -46,7 +46,7 @@ export const Lists = ({ data, headers }: Props) => {
 }
 type Props = {
   data: string[][]
-  headers: Column[]
+  headers: string[]
   isFetching: boolean
 }
 type CellProps = {
