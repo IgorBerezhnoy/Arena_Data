@@ -57,47 +57,43 @@ import { QueryFunctionContext, useInfiniteQuery } from 'react-query'
 
 import s from './styles/App.module.css'
 
-import App2 from './App2'
+import { Lists } from './components/window/Lists'
 import { DataType, UserType } from './server/bd/bd.ts'
 
-export default function App1() {
-  const getUsers = async ({
-    pageParam,
-  }: QueryFunctionContext<string[], any>): Promise<{ users: DataType[] }> => {
-    const res = await fetch(`/api/users?page=${pageParam}`)
-    const json = await res.json()
+export default function App2({
+  fetchNextPage,
+  headers,
+  users,
+}: {
+  fetchNextPage: () => void
+  headers: string[]
+  users: UserType[]
+}) {
+  const [headerForTable, setHeaderForTable] = React.useState(headers)
+  const deleteColumn = (el: string) => {
+    const newHeaderForTable = headerForTable.filter(item => item !== el)
 
-    return json
+    setHeaderForTable(newHeaderForTable)
   }
-  const {
-    data: query,
-    error,
-    fetchNextPage,
-    isFetching,
-    // @ts-ignore
-  } = useInfiniteQuery({
-    getNextPageParam: (lastPage, pages) => (lastPage.users.length > 0 ? pages.length + 1 : null),
-    initialPageParam: 0,
-    queryFn: getUsers,
-    queryKey: ['users'],
-  })
+  const usersList = (user: UserType) => {
+    const jsx = []
 
-  const users = [] as UserType[]
+    for (let i = 0; i < headerForTable.length; i++) {
+      jsx.push(user[headerForTable[i]])
+    }
 
-  query?.pages.forEach(el => {
-    users.push(...el.users[0].users)
-  })
-  const headers = users.length > 0 ? Object.keys(users[0]) : []
+    return jsx
+  }
+  const data = users.map(el => usersList(el))
 
   return (
     <>
-      <h1 className={s.title}>Users</h1>
-      {query && <h1 className={s.title}>query</h1>}
-      {users.length > 0 && headers.length > 0 && (
-        <App2 fetchNextPage={fetchNextPage} headers={headers} users={users} />
-      )}
-      {isFetching && <div>Loading</div>}
-      {error && <div>isError</div>}
+      <Lists
+        data={data}
+        deleteColumn={deleteColumn}
+        fetchNextPage={fetchNextPage}
+        headers={headerForTable}
+      />
     </>
   )
 }
