@@ -71,6 +71,7 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
+    "@fontsource/roboto": "^5.0.13",
     "clsx": "^2.1.1",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-perfectionist": "^2.10.0",
