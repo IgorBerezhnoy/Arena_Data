@@ -2,7 +2,7 @@ import { faker, simpleFaker } from '@faker-js/faker'
 
 export const getDataFromBD = () => {
   const numberOfElements = 25 // Количество элементов
-  const numberOfProperties = 1000 // Количество свойств
+  const numberOfProperties = 300 // Количество свойств
 
   const data: dataType = { headers: [], users: [] }
 
@@ -13,7 +13,6 @@ export const getDataFromBD = () => {
       if (i === 0) {
         if (j === 0) {
           data.headers.push({ key: `fullName${j}`, title: `fullName` })
-          data.headers.push({ key: `email${j}`, title: `email` })
         }
         data.headers.push({ key: `property_${j}`, title: `property_${j}` })
       }
@@ -21,7 +20,6 @@ export const getDataFromBD = () => {
     }
     element['id'] = simpleFaker.string.uuid()
     element.fullName = faker.person.fullName()
-    element.email = faker.internet.email()
     data.users.push(element)
   }
 
@@ -38,7 +36,6 @@ export type dataType = {
 
 export type UserType = {
   [key: string]: string
-  email: string
   fullName: string
   id: string
 }

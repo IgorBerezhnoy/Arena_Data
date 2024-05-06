@@ -4,20 +4,32 @@ import { FixedSizeGrid as Grid } from 'react-window'
 
 import { Column } from './components/table'
 
-export const Lists = ({ headers }: { headers: Column[] }) => {
-  const Cell = ({ columnIndex, style }: { columnIndex: number; rowIndex: number; style: any }) => (
-    <div style={style}>{headers[columnIndex].title}</div>
-  )
+export const Lists = ({ headers }: { headers: string[][] }) => {
+  const Cell = ({
+    columnIndex,
+    rowIndex,
+    style,
+  }: {
+    columnIndex: number
+    rowIndex: number
+    style: any
+  }) => {
+    return (
+      <div key={rowIndex + columnIndex} style={style}>
+        {headers[rowIndex][columnIndex]}
+      </div>
+    )
+  }
 
   return (
     <Grid
       className={'Grid'}
-      columnCount={headers.length}
-      columnWidth={headers.length / 2}
+      columnCount={300}
+      columnWidth={200}
       height={600}
-      rowCount={headers.length / 2}
-      rowHeight={25}
-      width={800}
+      rowCount={headers.length}
+      rowHeight={50}
+      width={1200}
     >
       {Cell}
     </Grid>
