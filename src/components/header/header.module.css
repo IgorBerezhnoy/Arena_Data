@@ -1,0 +1,28 @@
+.header {
+  position: relative;
+  z-index: 5;
+
+  height: 88px;
+  padding: 20px 10px;
+
+  background: #171717;
+  background: linear-gradient(270.12deg, #dcf5fb 0%, #e1edfe 50.52%, #d6ffe9 100%);
+}
+
+.logoCompany {
+  margin-left: 26px;
+
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 24px;
+
+  /* Grey/Black | Complex */
+  color: #212125;
+}
+
+.mainHeader {
+  display: flex;
+  align-items: center;
+}

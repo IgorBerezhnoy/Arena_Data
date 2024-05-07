@@ -58,6 +58,7 @@ import { QueryFunctionContext, useInfiniteQuery } from 'react-query'
 import s from './styles/App.module.css'
 
 import App2 from './App2'
+import { MainHeader } from './components/header/mainHeader'
 import { DataType, UserType } from './server/bd/bd.ts'
 
 export default function App1() {
@@ -91,6 +92,7 @@ export default function App1() {
 
   return (
     <>
+      <MainHeader />
       <h1 className={s.title}>Users</h1>
       {query && <h1 className={s.title}>query</h1>}
       {users.length > 0 && headers.length > 0 && (
