@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { UserType } from '../../server/bd/bd.ts'
-import { Lists } from '../window/Lists'
 import { useTableUsers } from './lib/useTableUsers'
+import { TableUsers } from './tableUsers'
 
 export default function TableUsersContainer({ fetchNextPage, headers, users }: Props) {
   const { deleteColumn, headerForTable, usersData } = useTableUsers({ headers, users })
 
   return (
-    <Lists
+    <TableUsers
       deleteColumn={deleteColumn}
       fetchNextPage={fetchNextPage}
       headers={headerForTable}

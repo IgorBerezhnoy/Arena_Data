@@ -1,11 +1,11 @@
-import React from 'react'
+import { useState } from 'react'
 
 import { UserType } from '../../../server/bd/bd.ts'
 
 export const useTableUsers = ({ headers, users }: { headers: string[]; users: UserType[] }) => {
-  const [headerForTable, setHeaderForTable] = React.useState(headers)
-  const deleteColumn = (el: string) => {
-    const newHeaderForTable = headerForTable.filter(item => item !== el)
+  const [headerForTable, setHeaderForTable] = useState(headers)
+  const deleteColumn = (category: string) => {
+    const newHeaderForTable = headerForTable.filter(item => item !== category)
 
     setHeaderForTable(newHeaderForTable)
   }
