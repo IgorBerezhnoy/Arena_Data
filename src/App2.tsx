@@ -1,16 +1,16 @@
 // import React, { useState } from 'react'
 // import { useQuery } from 'react-query'
 //
-// import s from './styles/App.module.css'
+// import s from './styles/main-pages.module.css'
 //
 // import { Column } from './components/table'
 // import { Lists } from './components/window/Lists'
 // import { DataType, UserType } from './server/bd/bd.ts'
 //
-// export default function App1() {
+// export default function MainPage() {
 //   const [count, setCount] = useState(1)
-//   const getUsers = async (page = 1): Promise<{ users: DataType[] }> => {
-//     const res = await fetch(`/api/users?page=${page}`)
+//   const getUsers = async (pages = 1): Promise<{ users: DataType[] }> => {
+//     const res = await fetch(`/api/users?pages=${pages}`)
 //     const json = await res.json()
 //
 //     debugger
@@ -55,7 +55,7 @@
 import React from 'react'
 import { QueryFunctionContext, useInfiniteQuery } from 'react-query'
 
-import s from './styles/App.module.css'
+import s from './pages/main-page/main-page.module.css'
 
 import { Lists } from './components/window/Lists'
 import { DataType, UserType } from './server/bd/bd.ts'
@@ -87,13 +87,13 @@ export default function App2({
   const data = users.map(el => usersList(el))
 
   return (
-    <>
+    <div>
       <Lists
         data={data}
         deleteColumn={deleteColumn}
         fetchNextPage={fetchNextPage}
         headers={headerForTable}
       />
-    </>
+    </div>
   )
 }

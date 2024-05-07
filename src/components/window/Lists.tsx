@@ -1,12 +1,40 @@
-import React, { useRef } from 'react'
+import React, { ReactNode, useCallback, useRef } from 'react'
+import { Scrollbars } from 'react-custom-scrollbars'
 import { FixedSizeGrid as Grid } from 'react-window'
 
 import { clsx } from 'clsx'
+
+import '../../list.css'
 
 import s from './lists.module.css'
 
 import { useDebounce } from '../../hooks/useDebounce'
 import { Skeletons } from '../skeletons/skeletons'
+
+const CustomScrollbars = ({ children, forwardedRef, onScroll, style }: CustomScrollbarsProps) => {
+  const refSetter = useCallback((scrollbarsRef: { view: any }) => {
+    if (scrollbarsRef) {
+      forwardedRef(scrollbarsRef.view)
+    } else {
+      forwardedRef(null)
+    }
+  }, [])
+
+  return (
+    <Scrollbars
+      onScroll={onScroll}
+      // @ts-ignore
+      ref={refSetter}
+      style={{ ...style, overflow: 'hidden' }}
+    >
+      {children}
+    </Scrollbars>
+  )
+}
+
+const CustomScrollbarsVirtualList = React.forwardRef((props, ref) => (
+  <CustomScrollbars {...props} forwardedRef={ref} />
+))
 
 export const Lists = ({ data, deleteColumn, fetchNextPage, headers }: Props) => {
   const debounce = useDebounce(fetchNextPage, 300)
@@ -59,14 +87,15 @@ export const Lists = ({ data, deleteColumn, fetchNextPage, headers }: Props) => 
   return (
     <Grid
       className={s.grid}
-      columnCount={300}
-      columnWidth={150}
+      columnCount={headers.length}
+      columnWidth={165}
       height={600}
       onScroll={handleScroll}
+      outerElementType={CustomScrollbarsVirtualList}
       outerRef={ref}
       rowCount={data.length}
       rowHeight={50}
-      width={1200}
+      width={1624}
     >
       {Cell}
     </Grid>
@@ -84,6 +113,13 @@ type CellProps = {
   rowIndex: number
   style: any
 }
+type CustomScrollbarsProps = {
+  children?: ReactNode
+  forwardedRef: any
+  onScroll?: any
+  style?: any
+}
+
 // import { FixedSizeList as List } from 'react-window'
 //
 // import { Column } from './components/table'

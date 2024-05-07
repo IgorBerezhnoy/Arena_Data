@@ -1,8 +1,5 @@
-.title {
-  font-size: 30px;
-}
-
 .container {
   max-width: 1720px;
   margin: 0 auto;
+  padding: 10px;
 }

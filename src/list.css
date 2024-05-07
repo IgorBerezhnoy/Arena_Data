@@ -1,0 +1,19 @@
+.react-custom-scrollbars-thumb-vertical {
+  background-color: #ff0000; /* установите нужный цвет */
+}
+
+/* Горизонтальный скроллбар */
+.react-custom-scrollbars-thumb-horizontal {
+  background-color: #ff0000; /* установите нужный цвет */
+}
+
+/* Изменение фона скролла */
+/* Вертикальный скроллбар */
+.react-custom-scrollbars-track-vertical {
+  background-color: #f0f0f0; /* установите нужный цвет фона */
+}
+
+/* Горизонтальный скроллбар */
+.react-custom-scrollbars-track-horizontal {
+  background-color: #f0f0f0; /* установите нужный цвет фона */
+}

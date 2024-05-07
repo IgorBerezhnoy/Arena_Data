@@ -1,0 +1,43 @@
+.wrapper {
+  padding: 48px;
+}
+
+.title {
+  margin: 0;
+
+  font-family: Roboto, sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 46px;
+  color: #212125;
+}
+
+.statistics {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #212125;
+}
+
+.num {
+  color: #009581;
+}
+
+.statisticsAndButtons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.buttons {
+  display: flex;
+}
+
+.ml8 {
+  margin-left: 8px;
+}
+
+.icon {
+  margin-right: 8px;
+}
