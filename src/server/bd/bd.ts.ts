@@ -9,6 +9,7 @@ export const getDataFromBD = () => {
   for (let i = 0; i < numberOfElements; i++) {
     const element = {} as UserType
 
+    element.status = faker.helpers.arrayElement(['active', 'inactive'])
     element.firstName = faker.person.firstName()
     element.lastName = faker.person.lastName()
     element.company = faker.company.name()

@@ -4,6 +4,7 @@ import { CellProps } from '../tableUsers'
 import { DefaultCell } from './defaultCell'
 import { HeaderCell } from './headerCell'
 import { SkeletonsCell } from './skeletonsCell'
+import { StatusCell } from './statusCell'
 
 export const CellsCorrectors = ({
   columnIndex,
@@ -13,6 +14,8 @@ export const CellsCorrectors = ({
   style,
   usersData,
 }: Props) => {
+  const userCell = usersData[rowIndex][columnIndex]
+
   if (rowIndex === 0) {
     return (
       <HeaderCell
@@ -26,14 +29,26 @@ export const CellsCorrectors = ({
   } else if (rowIndex >= usersData.length - 2) {
     return <SkeletonsCell columnIndex={columnIndex} rowIndex={rowIndex} style={style} />
   } else {
-    return (
-      <DefaultCell
-        columnIndex={columnIndex}
-        rowIndex={rowIndex}
-        style={style}
-        usersData={usersData}
-      />
-    )
+    if (userCell === 'active' || userCell === 'inactive') {
+      return (
+        <StatusCell
+          columnIndex={columnIndex}
+          rowIndex={rowIndex}
+          status={userCell}
+          style={style}
+          usersData={usersData}
+        />
+      )
+    } else {
+      return (
+        <DefaultCell
+          columnIndex={columnIndex}
+          rowIndex={rowIndex}
+          style={style}
+          usersData={usersData}
+        />
+      )
+    }
   }
 }
 type Props = {

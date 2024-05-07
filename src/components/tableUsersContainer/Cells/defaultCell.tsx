@@ -7,8 +7,14 @@ import s from './cell.module.css'
 import { CellProps } from '../tableUsers'
 
 export const DefaultCell = ({ columnIndex, rowIndex, style, usersData }: Props) => {
+  const evenOrNot = rowIndex % 2 === 1
+
   return (
-    <div className={clsx(s.gridCell)} key={rowIndex + columnIndex} style={style}>
+    <div
+      className={clsx(s.gridCell, evenOrNot ? s.even : s.odd)}
+      key={rowIndex + columnIndex}
+      style={style}
+    >
       {usersData[rowIndex][columnIndex]}
     </div>
   )
