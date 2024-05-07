@@ -9,12 +9,8 @@
   background: linear-gradient(270.12deg, #dcf5fb 0%, #e1edfe 50.52%, #d6ffe9 100%);
 }
 
-.icon {
-  cursor: pointer;
-}
-
 .logoCompany {
-  margin-left: 26px;
+  margin-left: 16px;
 
   font-family: Roboto, sans-serif;
   font-size: 20px;
@@ -29,9 +25,32 @@
 .logoAndIcon {
   display: flex;
   align-items: center;
+  margin-right: 5px;
 }
 
 .mainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  max-width: 1720px;
+  margin: 0 auto;
+}
+
+.buttonIcon {
+  cursor: pointer;
+  margin: 0 8px;
+  background: transparent;
+  border: none;
+}
+
+.profileIcon {
+  padding: 12px;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.buttons {
   display: flex;
   align-items: center;
   justify-content: space-between;

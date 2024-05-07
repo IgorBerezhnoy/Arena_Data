@@ -93,12 +93,14 @@ export default function App1() {
   return (
     <>
       <MainHeader />
-      <h1 className={s.title}>Users</h1>
-      {query && <h1 className={s.title}>query</h1>}
-      {users.length > 0 && headers.length > 0 && (
-        <App2 fetchNextPage={fetchNextPage} headers={headers} users={users} />
-      )}
-      {isFetching && <div>Loading</div>}
+      <div className={s.container}>
+        <h1 className={s.title}>Users</h1>
+        {query && <h1 className={s.title}>query</h1>}
+        {users.length > 0 && headers.length > 0 && (
+          <App2 fetchNextPage={fetchNextPage} headers={headers} users={users} />
+        )}
+        {isFetching && <div>Loading</div>}
+      </div>
       {error && <div>isError</div>}
     </>
   )

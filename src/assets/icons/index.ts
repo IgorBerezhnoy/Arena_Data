@@ -1,2 +1,6 @@
+export { default as HelpIcon } from './help_Icon'
 export { default as MenuIcon } from './menu_Icon'
+export { default as ProfileIcon } from './profile_Icon'
 export { default as SearchIcon } from './search_Icon'
+export { default as SettingsIcon } from './settings_Icon'
+export { default as TaskIcon } from './task_Icon'
