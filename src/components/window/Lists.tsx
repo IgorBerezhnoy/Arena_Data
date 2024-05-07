@@ -36,7 +36,7 @@ const CustomScrollbarsVirtualList = React.forwardRef((props, ref) => (
   <CustomScrollbars {...props} forwardedRef={ref} />
 ))
 
-export const Lists = ({ data, deleteColumn, fetchNextPage, headers }: Props) => {
+export const Lists = ({ deleteColumn, fetchNextPage, headers, usersData }: Props) => {
   const debounce = useDebounce(fetchNextPage, 300)
 
   const ref = useRef<any>(null)
@@ -69,7 +69,7 @@ export const Lists = ({ data, deleteColumn, fetchNextPage, headers }: Props) => 
           {header}
         </div>
       )
-    } else if (rowIndex === data.length - 2 || rowIndex === data.length - 1) {
+    } else if (rowIndex === usersData.length - 2 || rowIndex === usersData.length - 1) {
       return (
         <div className={clsx(s.gridCell)} key={rowIndex + columnIndex} style={style}>
           <Skeletons />
@@ -78,7 +78,7 @@ export const Lists = ({ data, deleteColumn, fetchNextPage, headers }: Props) => 
     } else {
       return (
         <div className={clsx(s.gridCell)} key={rowIndex + columnIndex} style={style}>
-          {data[rowIndex][columnIndex]}
+          {usersData[rowIndex][columnIndex]}
         </div>
       )
     }
@@ -93,7 +93,7 @@ export const Lists = ({ data, deleteColumn, fetchNextPage, headers }: Props) => 
       onScroll={handleScroll}
       outerElementType={CustomScrollbarsVirtualList}
       outerRef={ref}
-      rowCount={data.length}
+      rowCount={usersData.length}
       rowHeight={50}
       width={1624}
     >
@@ -102,10 +102,10 @@ export const Lists = ({ data, deleteColumn, fetchNextPage, headers }: Props) => 
   )
 }
 type Props = {
-  data: string[][]
   deleteColumn: (el: string) => void
   fetchNextPage: () => void
   headers: string[]
+  usersData: string[][]
 }
 type CellProps = {
   columnIndex: number
