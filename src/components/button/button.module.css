@@ -36,5 +36,17 @@
 
 .error:active {
   color: #dedede;
-  background: #e34c72;
+  background: rgb(224 12 56 / 39%);
+}
+
+@media (width <= 768px) {
+  .button {
+    padding: 14px 20px;
+  }
+}
+
+@media (width <= 480px) {
+  .button {
+    padding: 10px;
+  }
 }

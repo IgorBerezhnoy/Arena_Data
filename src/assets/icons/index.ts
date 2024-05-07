@@ -1,3 +1,5 @@
+export { default as ErrorIcon } from './error_Icon'
+export { default as FailIcon } from './fail_Icon'
 export { default as HelpIcon } from './help_Icon'
 export { default as MenuIcon } from './menu_Icon'
 export { default as ProfileIcon } from './profile_Icon'
