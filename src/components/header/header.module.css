@@ -9,6 +9,10 @@
   background: linear-gradient(270.12deg, #dcf5fb 0%, #e1edfe 50.52%, #d6ffe9 100%);
 }
 
+.icon {
+  cursor: pointer;
+}
+
 .logoCompany {
   margin-left: 26px;
 
@@ -22,7 +26,13 @@
   color: #212125;
 }
 
+.logoAndIcon {
+  display: flex;
+  align-items: center;
+}
+
 .mainHeader {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }

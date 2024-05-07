@@ -6,8 +6,8 @@ import s from './header.module.css'
 
 export const Header = ({ children, className, ...rest }: Props) => {
   return (
-    <header className={clsx(s.header, className)} {...rest}>
-      {children}
+    <header className={clsx(s.header)} {...rest}>
+      <div className={clsx(s.container, className)}>{children}</div>
     </header>
   )
 }

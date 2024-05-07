@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { Logo } from '@/assets/logo/logo'
-import { Avatar } from '@/components/avatar'
-import { Button } from '@/components/button'
-
 import s from './header.module.css'
 
 import { Header } from './'
@@ -17,32 +13,9 @@ const meta: Meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-
-export const LogOut: Story = {
+//TODO не забудььте включить storybook для этого компонента
+export const Default: Story = {
   args: {
-    children: (
-      <div className={s.wrapper}>
-        <div className={s.logo}>
-          <a href={'/'}>
-            <Logo />
-          </a>
-        </div>
-        <Button className={s.button}>Sign In</Button>
-      </div>
-    ),
-  },
-}
-export const LogIn: Story = {
-  args: {
-    children: (
-      <div className={s.wrapper}>
-        <div className={s.logo}>
-          <a href={'/'}>
-            <Logo />
-          </a>
-        </div>
-        <Avatar className={s.avatar} name={'Nick'} size={52} />
-      </div>
-    ),
+    children: <div className={s.wrapper}></div>,
   },
 }

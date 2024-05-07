@@ -1,0 +1,17 @@
+.input {
+  padding: 14px 14px 14px 60px;
+
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 24px;
+
+  border: 2px solid #d5e9ff;
+  border-radius: 24px;
+}
+
+.input::placeholder {
+  font-weight: 500;
+  color: #6c6f7c;
+}
