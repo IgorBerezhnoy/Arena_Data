@@ -1,0 +1,15 @@
+.wrapper {
+  margin: 20px 0;
+
+  /* Главная > Бизнес глоссарий > Термин №1 */
+
+  color: #1f295a;
+}
+
+.link {
+  cursor: pointer;
+}
+
+.arrow {
+  margin: 0 8px;
+}
