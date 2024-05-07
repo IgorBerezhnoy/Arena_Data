@@ -2,7 +2,7 @@ import React from 'react'
 
 import s from '../mainContent.module.css'
 
-import { StatisticsType } from '../../../constants'
+import { StatisticsType } from '../../../constants/constans'
 
 export const Statistics = ({ creation, processed, total, update, withError }: StatisticsType) => {
   return (

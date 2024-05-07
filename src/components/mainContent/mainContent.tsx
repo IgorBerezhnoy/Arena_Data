@@ -3,7 +3,7 @@ import React from 'react'
 import s from './mainContent.module.css'
 
 import { Card } from '../card'
-import TableUsersContainer from '../tableUsersContainer/tableUsersContainer'
+import { TableUsersContainer } from '../tableUsersContainer'
 import { SubheaderOfTable } from './lib/subheaderOfTable'
 
 export const MainContent = ({ fetchNextPage, headers, users }: Props) => {

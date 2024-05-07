@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { UserType } from '../../../server/bd/bd.ts'
+import { UserType } from '../../../server'
 
 export const useTableUsers = ({ headers, users }: { headers: string[]; users: UserType[] }) => {
   const [headerForTable, setHeaderForTable] = useState(headers)
