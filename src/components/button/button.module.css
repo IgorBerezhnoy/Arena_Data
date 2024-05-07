@@ -1,0 +1,40 @@
+.button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 35px;
+
+  font-weight: 700;
+
+  border: none;
+  border-radius: 14px;
+
+  transition: all 0.4s ease-in-out;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.primary {
+  color: #6c6f7c;
+  background: #f2f4f9;
+}
+
+.primary:active {
+  background: #c0c5d2;
+}
+
+.error {
+  color: #ff003d;
+  background: #fff3f6;
+  box-shadow: 0 2px 10px rgb(253 62 108 / 50%);
+}
+
+.error:active {
+  color: #dedede;
+  background: #e34c72;
+}
