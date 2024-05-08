@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
+import { useSize } from '../../hooks'
 import { UserType } from '../../server'
 import { useTableUsers } from './lib/useTableUsers'
 import { TableUsers } from './tableUsers'
 
 export function TableUsersContainer({ fetchNextPage, headers, users }: Props) {
   const { deleteColumn, headerForTable, usersData } = useTableUsers({ headers, users })
+  const windowSize = useSize()
+  const withTable = windowSize[1] > 1720 ? 1624 : windowSize[1] - 100
 
   return (
     <TableUsers
@@ -13,6 +16,7 @@ export function TableUsersContainer({ fetchNextPage, headers, users }: Props) {
       fetchNextPage={fetchNextPage}
       headers={headerForTable}
       usersData={usersData}
+      withTable={withTable}
     />
   )
 }

@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FixedSizeGrid as Grid } from 'react-window'
 
 import s from './tableUsers.module.css'
 
+import { useSize } from '../../hooks'
 import { CustomScrollbarsVirtualList } from '../customScrollbars'
 import { CellsCorrectors } from './Cells/cellsCorrectors'
 import { useHandleScroll } from './lib/useHandleScroll'
 
-export const TableUsers = ({ deleteColumn, fetchNextPage, headers, usersData }: Props) => {
+export const TableUsers = ({
+  deleteColumn,
+  fetchNextPage,
+  headers,
+  usersData,
+  withTable,
+}: Props) => {
   const { handleScroll, ref } = useHandleScroll(fetchNextPage)
+
   const Cell = ({ columnIndex, rowIndex, style }: CellProps) => {
     const header = headers[columnIndex]
 
@@ -35,7 +43,7 @@ export const TableUsers = ({ deleteColumn, fetchNextPage, headers, usersData }: 
       outerRef={ref}
       rowCount={usersData.length}
       rowHeight={50}
-      width={1624}
+      width={withTable}
     >
       {Cell}
     </Grid>
@@ -47,6 +55,7 @@ type Props = {
   fetchNextPage: () => void
   headers: string[]
   usersData: string[][]
+  withTable: number
 }
 export type CellProps = {
   columnIndex: number

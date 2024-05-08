@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react'
 
-export function useDebounce(value: unknown, delay: number | undefined) {
-  const [debouncedValue, setDebouncedValue] = useState(value)
+export function useSize() {
+  const [windowSize, setWindowSize] = useState([window.innerHeight, window.innerWidth])
 
   useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value)
-    }, delay || 300)
+    const windowSizeHandler = () => {
+      setWindowSize([window.innerWidth, window.innerHeight])
+    }
+
+    window.addEventListener('resize', windowSizeHandler)
 
     return () => {
-      clearTimeout(handler)
+      window.removeEventListener('resize', windowSizeHandler)
     }
-  }, [value])
+  }, [])
 
-  return debouncedValue
+  return windowSize
 }
