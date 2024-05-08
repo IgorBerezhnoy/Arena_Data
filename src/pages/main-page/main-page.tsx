@@ -3,7 +3,7 @@ import React, { memo } from 'react'
 import s from './main-page.module.css'
 
 import { Loader, MainContent, MainHeader, NavLinks } from '../../components'
-import { ErrorCard } from '../../components/errorCard/errorCard'
+import { ErrorCard } from '../../components/errorCard'
 import { UserTypes } from '../../server'
 
 export const MainPage = memo(({ error, fetchNextPage, headers, isLoading, users }: Props) => {

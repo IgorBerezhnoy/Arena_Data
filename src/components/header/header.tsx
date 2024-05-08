@@ -13,5 +13,5 @@ export const Header = memo(({ children, className, ...rest }: Props) => {
 })
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> {
-  children: ReactNode
+  children?: ReactNode
 }

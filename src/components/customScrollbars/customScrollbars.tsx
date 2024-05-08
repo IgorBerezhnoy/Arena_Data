@@ -1,4 +1,4 @@
-import React, { ReactNode, useCallback } from 'react'
+import React, { ReactNode, forwardRef, useCallback } from 'react'
 import { Scrollbars } from 'react-custom-scrollbars'
 
 export const CustomScrollbars = ({
@@ -26,7 +26,7 @@ export const CustomScrollbars = ({
     </Scrollbars>
   )
 }
-export const CustomScrollbarsVirtualList = React.forwardRef((props, ref) => (
+export const CustomScrollbarsVirtualList = forwardRef((props, ref) => (
   <CustomScrollbars {...props} forwardedRef={ref} />
 ))
 

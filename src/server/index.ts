@@ -1,3 +1,3 @@
-export * from './bd'
+export * from './db'
 export * from './server'
 export * from './userTypes'
