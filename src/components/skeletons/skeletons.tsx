@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import ContentLoader from 'react-content-loader'
 
-export const Skeletons = ({ ...props }) => {
+export const Skeletons = memo(({ ...props }) => {
   return (
     <ContentLoader
       backgroundColor={'#e3e3e3'}
@@ -15,4 +15,4 @@ export const Skeletons = ({ ...props }) => {
       <rect height={'20'} rx={'3'} ry={'3'} width={'224'} x={'8'} y={'0'} />
     </ContentLoader>
   )
-}
+})

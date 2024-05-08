@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { useSize } from '../../hooks'
 import { Header } from '../../pages/main-page'
@@ -6,7 +6,7 @@ import { UserTypes } from '../../server'
 import { useTableUsers } from './lib/useTableUsers'
 import { TableUsers } from './tableUsers'
 
-export function TableUsersContainer({ fetchNextPage, headers, users }: Props) {
+export const TableUsersContainer = memo(({ fetchNextPage, headers, users }: Props) => {
   const { changeColumn, deleteColumn, headerForTable, usersData } = useTableUsers({
     headers,
     users,
@@ -24,7 +24,7 @@ export function TableUsersContainer({ fetchNextPage, headers, users }: Props) {
       withTable={withTable}
     />
   )
-}
+})
 
 type Props = {
   fetchNextPage: () => void

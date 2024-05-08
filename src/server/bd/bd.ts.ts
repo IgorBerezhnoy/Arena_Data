@@ -4,7 +4,7 @@ import { DataType, UserTypes } from '../userTypes'
 
 export const getDataFromBD = () => {
   const numberOfElements = 25 // Количество элементов
-  const numberOfProperties = 300 // Количество свойств
+  const numberOfProperties = 3000 // Количество свойств
 
   const data: DataType = { users: [] }
 

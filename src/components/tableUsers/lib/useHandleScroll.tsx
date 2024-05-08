@@ -1,8 +1,8 @@
-import { useRef } from 'react'
+import { useCallback, useRef } from 'react'
 
 export const useHandleScroll = (fetchNextPage: () => void) => {
   const ref = useRef<any>(null)
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     const scrollContainer = ref.current
 
     if (scrollContainer) {
@@ -14,7 +14,7 @@ export const useHandleScroll = (fetchNextPage: () => void) => {
         fetchNextPage()
       }
     }
-  }
+  }, [fetchNextPage])
 
   return { handleScroll, ref }
 }

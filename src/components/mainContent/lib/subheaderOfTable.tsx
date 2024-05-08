@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import s from '../mainContent.module.css'
 
@@ -7,7 +7,7 @@ import { statistics } from '../../../constants'
 import { Button } from '../../button'
 import { Statistics } from './statistics'
 
-export const SubheaderOfTable = () => {
+export const SubheaderOfTable = memo(() => {
   return (
     <div className={s.statisticsAndButtons}>
       <div>
@@ -26,4 +26,4 @@ export const SubheaderOfTable = () => {
       </div>
     </div>
   )
-}
+})

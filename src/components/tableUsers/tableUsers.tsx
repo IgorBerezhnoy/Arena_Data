@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { FixedSizeGrid as Grid } from 'react-window'
 
 import s from './tableUsers.module.css'
@@ -9,53 +9,48 @@ import { CellsCorrectors } from './Cells/cellsCorrectors'
 import { ChangeColumnType } from './Cells/headerCell'
 import { useHandleScroll } from './lib/useHandleScroll'
 
-export const TableUsers = ({
-  changeColumn,
-  deleteColumn,
-  fetchNextPage,
-  headers,
-  usersData,
-  withTable,
-}: Props) => {
-  const [currentColumn, setCurrentColumn] = React.useState<Header | null>(null)
+export const TableUsers = memo(
+  ({ changeColumn, deleteColumn, fetchNextPage, headers, usersData, withTable }: Props) => {
+    const [currentColumn, setCurrentColumn] = React.useState<Header | null>(null)
 
-  const { handleScroll, ref } = useHandleScroll(fetchNextPage)
+    const { handleScroll, ref } = useHandleScroll(fetchNextPage)
 
-  const Cell = ({ columnIndex, rowIndex, style }: CellProps) => {
-    const header = headers[columnIndex]
+    const Cell = memo(({ columnIndex, rowIndex, style }: CellProps) => {
+      const header = headers[columnIndex]
+
+      return (
+        <CellsCorrectors
+          changeColumn={changeColumn}
+          columnIndex={columnIndex}
+          currentColumn={currentColumn}
+          deleteColumn={deleteColumn}
+          header={header}
+          rowIndex={rowIndex}
+          setCurrentColumn={setCurrentColumn}
+          style={style}
+          usersData={usersData}
+        />
+      )
+    })
 
     return (
-      <CellsCorrectors
-        changeColumn={changeColumn}
-        columnIndex={columnIndex}
-        currentColumn={currentColumn}
-        deleteColumn={deleteColumn}
-        header={header}
-        rowIndex={rowIndex}
-        setCurrentColumn={setCurrentColumn}
-        style={style}
-        usersData={usersData}
-      />
+      <Grid
+        className={s.grid}
+        columnCount={headers.length}
+        columnWidth={165}
+        height={600}
+        onScroll={handleScroll}
+        outerElementType={CustomScrollbarsVirtualList}
+        outerRef={ref}
+        rowCount={usersData.length}
+        rowHeight={50}
+        width={withTable}
+      >
+        {Cell}
+      </Grid>
     )
   }
-
-  return (
-    <Grid
-      className={s.grid}
-      columnCount={headers.length}
-      columnWidth={165}
-      height={600}
-      onScroll={handleScroll}
-      outerElementType={CustomScrollbarsVirtualList}
-      outerRef={ref}
-      rowCount={usersData.length}
-      rowHeight={50}
-      width={withTable}
-    >
-      {Cell}
-    </Grid>
-  )
-}
+)
 
 type Props = {
   changeColumn: ChangeColumnType

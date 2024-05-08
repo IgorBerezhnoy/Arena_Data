@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import { clsx } from 'clsx'
 
@@ -6,7 +6,7 @@ import s from './cell.module.css'
 
 import { CellProps } from '../tableUsers'
 
-export const DefaultCell = ({ columnIndex, rowIndex, style, usersData }: Props) => {
+export const DefaultCell = memo(({ columnIndex, rowIndex, style, usersData }: Props) => {
   const evenOrNot = rowIndex % 2 === 1
 
   return (
@@ -18,5 +18,5 @@ export const DefaultCell = ({ columnIndex, rowIndex, style, usersData }: Props) 
       {usersData[rowIndex][columnIndex]}
     </div>
   )
-}
+})
 type Props = { usersData: string[][] } & CellProps
