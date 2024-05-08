@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { UserType } from '../../server/bd/bd.ts'
+import { UserType } from '../../server'
 import { useTableUsers } from './lib/useTableUsers'
 import { TableUsers } from './tableUsers'
 

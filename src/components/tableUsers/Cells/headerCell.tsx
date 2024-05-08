@@ -7,13 +7,11 @@ import s from './cell.module.css'
 export const HeaderCell = ({ columnIndex, deleteColumn, header, rowIndex, style }: Props) => {
   // {/*Todo не забудь поправить*/}
   return (
-    <div
-      className={clsx(s.tableHeader, s.gridCell)}
-      key={rowIndex + columnIndex}
-      onDoubleClick={() => deleteColumn(header)}
-      style={style}
-    >
+    <div className={clsx(s.tableHeader, s.gridCell)} key={rowIndex + columnIndex} style={style}>
       {header}
+      <button className={s.deleteColumn} onClick={() => deleteColumn(header)}>
+        ✕
+      </button>
     </div>
   )
 }

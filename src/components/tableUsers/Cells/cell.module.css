@@ -1,6 +1,4 @@
 .tableHeader {
-  cursor: pointer;
-
   display: flex;
   flex-direction: row;
   gap: 8px;
@@ -47,4 +45,18 @@
 
 .inactive {
   color: #ff003d;
+}
+
+.deleteColumn {
+  cursor: pointer;
+
+  opacity: 0.2;
+  background: none;
+  border: none;
+
+  transition: all 0.3s;
+}
+
+.deleteColumn:hover {
+  opacity: 1;
 }
