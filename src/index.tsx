@@ -7,7 +7,7 @@ import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
 
 import App from './App'
-import { makeServer } from './server/server'
+import { makeServer } from './server'
 
 if (process.env.NODE_ENV === 'development') {
   makeServer({ environment: 'development' })

@@ -3,7 +3,7 @@ import { FixedSizeGrid as Grid } from 'react-window'
 
 import s from './tableUsers.module.css'
 
-import { CustomScrollbarsVirtualList } from '../customScrollbars/customScrollbars'
+import { CustomScrollbarsVirtualList } from '../customScrollbars'
 import { CellsCorrectors } from './Cells/cellsCorrectors'
 import { useHandleScroll } from './lib/useHandleScroll'
 
