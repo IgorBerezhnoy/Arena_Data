@@ -2,11 +2,8 @@ import React from 'react'
 
 import s from './main-page.module.css'
 
-import { MainHeader } from '../../components/header/mainHeader'
-import { Loader } from '../../components/loader'
-import { MainContent } from '../../components/mainContent/mainContent'
-import { NavLinks } from '../../components/navLinks/navLinks'
-import { UserType } from '../../server/bd/bd.ts'
+import { Loader, MainContent, MainHeader, NavLinks } from '../../components'
+import { UserType } from '../../server'
 
 export function MainPage({ error, fetchNextPage, headers, isLoading, users }: Props) {
   const haveLang = headers.length > 0
@@ -28,7 +25,11 @@ export function MainPage({ error, fetchNextPage, headers, isLoading, users }: Pr
 type Props = {
   error: boolean
   fetchNextPage: () => void
-  headers: string[]
+  headers: Header[]
   isLoading: boolean
   users: UserType[]
+}
+export type Header = {
+  order: number
+  text: string
 }

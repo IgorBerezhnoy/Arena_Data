@@ -1,6 +1,7 @@
 export * from './button'
 export * from './card'
 export * from './customScrollbars'
+export * from './header'
 export * from './loader'
 export * from './mainContent'
 export * from './navLinks'

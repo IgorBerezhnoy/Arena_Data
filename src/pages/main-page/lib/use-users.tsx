@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from 'react-query'
 
 import { getUsers } from '../../../api/api'
-import { UserType } from '../../../server/bd/bd.ts'
+import { UserType } from '../../../server'
 
 export const useUsers = () => {
   const {
@@ -22,7 +22,13 @@ export const useUsers = () => {
   query?.pages.forEach(el => {
     users.push(...el.users[0].users)
   })
-  const headers = users.length > 0 ? Object.keys(users[0]) : []
+  const headers =
+    users.length > 0
+      ? Object.keys(users[0]).map((el, i) => ({
+          order: i,
+          text: el,
+        }))
+      : []
 
   return { fetchNextPage, headers, isError, isLoading, users }
 }

@@ -1,16 +1,20 @@
 import React from 'react'
 
+import { Header } from '../../../pages/main-page'
 import { CellProps } from '../tableUsers'
 import { DefaultCell } from './defaultCell'
-import { HeaderCell } from './headerCell'
+import { ChangeColumnType, HeaderCell } from './headerCell'
 import { SkeletonsCell } from './skeletonsCell'
 import { StatusCell } from './statusCell'
 
 export const CellsCorrectors = ({
+  changeColumn,
   columnIndex,
+  currentColumn,
   deleteColumn,
   header,
   rowIndex,
+  setCurrentColumn,
   style,
   usersData,
 }: Props) => {
@@ -19,10 +23,13 @@ export const CellsCorrectors = ({
   if (rowIndex === 0) {
     return (
       <HeaderCell
+        changeColumn={changeColumn}
         columnIndex={columnIndex}
+        currentColumn={currentColumn}
         deleteColumn={deleteColumn}
         header={header}
         rowIndex={rowIndex}
+        setCurrentColumn={setCurrentColumn}
         style={style}
       />
     )
@@ -52,7 +59,12 @@ export const CellsCorrectors = ({
   }
 }
 type Props = {
+  changeColumn: ChangeColumnType
+
+  currentColumn: Header | null
   deleteColumn: (el: string) => void
-  header: string
+
+  header: Header
+  setCurrentColumn: (el: Header) => void
   usersData: string[][]
 } & CellProps

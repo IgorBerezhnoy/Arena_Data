@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FixedSizeGrid as Grid } from 'react-window'
 
 import s from './tableUsers.module.css'
 
-import { useSize } from '../../hooks'
+import { Header } from '../../pages/main-page'
 import { CustomScrollbarsVirtualList } from '../customScrollbars'
 import { CellsCorrectors } from './Cells/cellsCorrectors'
+import { ChangeColumnType } from './Cells/headerCell'
 import { useHandleScroll } from './lib/useHandleScroll'
 
 export const TableUsers = ({
+  changeColumn,
   deleteColumn,
   fetchNextPage,
   headers,
   usersData,
   withTable,
 }: Props) => {
+  const [currentColumn, setCurrentColumn] = React.useState<Header | null>(null)
+
   const { handleScroll, ref } = useHandleScroll(fetchNextPage)
 
   const Cell = ({ columnIndex, rowIndex, style }: CellProps) => {
@@ -22,10 +26,13 @@ export const TableUsers = ({
 
     return (
       <CellsCorrectors
+        changeColumn={changeColumn}
         columnIndex={columnIndex}
+        currentColumn={currentColumn}
         deleteColumn={deleteColumn}
         header={header}
         rowIndex={rowIndex}
+        setCurrentColumn={setCurrentColumn}
         style={style}
         usersData={usersData}
       />
@@ -51,9 +58,10 @@ export const TableUsers = ({
 }
 
 type Props = {
+  changeColumn: ChangeColumnType
   deleteColumn: (el: string) => void
   fetchNextPage: () => void
-  headers: string[]
+  headers: Header[]
   usersData: string[][]
   withTable: number
 }
