@@ -3,7 +3,7 @@ import React from 'react'
 import s from '../mainContent.module.css'
 
 import { ErrorIcon, FailIcon } from '../../../assets/icons'
-import { statistics } from '../../../constants/constans'
+import { statistics } from '../../../constants'
 import { Button } from '../../button'
 import { Statistics } from './statistics'
 

@@ -1,7 +1,3 @@
-import { DetailedHTMLProps, ElementRef, InputHTMLAttributes, JSX, forwardRef } from 'react'
-
-import { clsx } from 'clsx'
-
 import s from './searchTextField.module.css'
 
 import { SearchIcon } from '../../assets/icons'

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
+import React from 'react'
+
 import s from './textField.module.css'
 
 import { TextField } from './textField'
@@ -18,9 +20,9 @@ const meta: Meta<typeof TextField> = {
 export default meta
 type Story = StoryObj<typeof TextField>
 
-export const Search: Story = {
+export const Default: Story = {
   args: {
     className: s.storyBook,
-    label: 'TextField',
+    placeholder: 'something',
   },
 }

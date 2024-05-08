@@ -3,7 +3,7 @@ import { clsx } from 'clsx'
 import s from './header.module.css'
 
 import { HelpIcon, MenuIcon, ProfileIcon, SettingsIcon, TaskIcon } from '../../assets/icons'
-import { SearchTextField } from '../searchTextField/searchTextField'
+import { SearchTextField } from '../searchTextField'
 import { Header } from './header'
 
 type Props = {}

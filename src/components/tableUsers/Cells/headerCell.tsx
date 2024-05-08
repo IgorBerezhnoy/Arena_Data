@@ -5,7 +5,6 @@ import { clsx } from 'clsx'
 import s from './cell.module.css'
 
 export const HeaderCell = ({ columnIndex, deleteColumn, header, rowIndex, style }: Props) => {
-  // {/*Todo не забудь поправить*/}
   return (
     <div className={clsx(s.tableHeader, s.gridCell)} key={rowIndex + columnIndex} style={style}>
       {header}

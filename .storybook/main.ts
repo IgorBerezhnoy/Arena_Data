@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-webpack5'
+import React from 'react'
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -17,5 +18,15 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  swc: () => ({
+    jsc: {
+      transform: {
+        react: {
+          runtime: 'automatic',
+        },
+      },
+    },
+  }),
 }
+
 export default config
