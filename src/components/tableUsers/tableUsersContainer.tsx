@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useSize } from '../../hooks'
 import { Header } from '../../pages/main-page'
-import { UserType } from '../../server'
+import { UserTypes } from '../../server'
 import { useTableUsers } from './lib/useTableUsers'
 import { TableUsers } from './tableUsers'
 
@@ -29,5 +29,5 @@ export function TableUsersContainer({ fetchNextPage, headers, users }: Props) {
 type Props = {
   fetchNextPage: () => void
   headers: Header[]
-  users: UserType[]
+  users: UserTypes[]
 }

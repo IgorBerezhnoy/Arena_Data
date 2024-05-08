@@ -1,6 +1,6 @@
 import { QueryFunctionContext } from 'react-query'
 
-import { DataType } from '../server/bd/bd.ts'
+import { DataType } from '../server/userTypes'
 
 const baseAPI = `/api/`
 

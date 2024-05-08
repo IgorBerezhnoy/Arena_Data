@@ -1,7 +1,8 @@
+import { useMemo } from 'react'
 import { useInfiniteQuery } from 'react-query'
 
 import { getUsers } from '../../../api/api'
-import { UserType } from '../../../server'
+import { UserTypes } from '../../../server'
 
 export const useUsers = () => {
   const {
@@ -17,18 +18,21 @@ export const useUsers = () => {
     queryKey: ['users'],
   })
 
-  const users = [] as UserType[]
+  const users = [] as UserTypes[]
 
   query?.pages.forEach(el => {
     users.push(...el.users[0].users)
   })
-  const headers =
-    users.length > 0
-      ? Object.keys(users[0]).map((el, i) => ({
-          order: i,
-          text: el,
-        }))
-      : []
+  const headers = useMemo(
+    () =>
+      users.length > 0
+        ? Object.keys(users[0]).map((el, i) => ({
+            order: i,
+            text: el,
+          }))
+        : [],
+    [users]
+  )
 
   return { fetchNextPage, headers, isError, isLoading, users }
 }

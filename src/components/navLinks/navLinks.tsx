@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 import s from './navLinks.module.css'
 
 import { NavLink } from './navLink'
 
-export const NavLinks = () => {
+export const NavLinks = memo(() => {
   const linksArr = ['Главная', 'Главный глоссарий', 'Импорт']
 
   const links = (
@@ -25,4 +25,4 @@ export const NavLinks = () => {
       </NavLink>
     </div>
   )
-}
+})

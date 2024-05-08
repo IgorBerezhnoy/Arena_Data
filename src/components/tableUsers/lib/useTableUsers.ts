@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
 import { Header } from '../../../pages/main-page'
-import { UserType } from '../../../server'
+import { UserTypes } from '../../../server'
 import { ChangeColumnType } from '../Cells/headerCell'
 
-export const useTableUsers = ({ headers, users }: { headers: Header[]; users: UserType[] }) => {
+export const useTableUsers = ({ headers, users }: { headers: Header[]; users: UserTypes[] }) => {
   const [headerForTable, setHeaderForTable] = useState(headers)
   const deleteColumn = (category: string) => {
     const newHeaderForTable = headerForTable.filter(item => item.text !== category)
@@ -28,7 +28,7 @@ export const useTableUsers = ({ headers, users }: { headers: Header[]; users: Us
       setHeaderForTable(sort)
     }
   }
-  const usersList = (user: UserType) => {
+  const usersList = (user: UserTypes) => {
     const usersArr = []
 
     for (let i = 0; i < headerForTable.length; i++) {

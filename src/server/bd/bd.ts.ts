@@ -1,5 +1,7 @@
 import { faker, simpleFaker } from '@faker-js/faker'
 
+import { DataType, UserTypes } from '../userTypes'
+
 export const getDataFromBD = () => {
   const numberOfElements = 25 // Количество элементов
   const numberOfProperties = 300 // Количество свойств
@@ -7,7 +9,7 @@ export const getDataFromBD = () => {
   const data: DataType = { users: [] }
 
   for (let i = 0; i < numberOfElements; i++) {
-    const element = {} as UserType
+    const element = {} as UserTypes
 
     element.status = faker.helpers.arrayElement(['active', 'inactive'])
     element.firstName = faker.person.firstName()
@@ -23,17 +25,4 @@ export const getDataFromBD = () => {
   }
 
   return data
-}
-
-export type DataType = {
-  users: UserType[]
-}
-
-export type UserType = {
-  [key: string]: string
-  company: string
-  firstName: string
-  id: string
-  lastName: string
-  phone: string
 }

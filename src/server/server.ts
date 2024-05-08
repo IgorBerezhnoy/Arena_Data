@@ -1,6 +1,6 @@
 import { Model, createServer } from 'miragejs'
 
-import { getDataFromBD } from './bd/bd.ts'
+import { getDataFromBD } from './bd'
 
 export function makeServer({ environment = 'test' } = {}) {
   return createServer({
@@ -41,30 +41,3 @@ export function makeServer({ environment = 'test' } = {}) {
     },
   })
 }
-
-// import { Model, createServer } from 'miragejs'
-//
-// import { getDataFromBD } from './bd/bd.ts'
-//
-// export function makeServer({ environment = 'test' } = {}) {
-//   return createServer({
-//     environment,
-//
-//     models: {
-//       user: Model,
-//     },
-//
-//     routes() {
-//       this.namespace = 'api'
-//
-//       this.get('/users', (schema: any) => {
-//         return schema.users.all()
-//       })
-//     },
-//
-//     seeds(server) {
-//       // @ts-ignore
-//       server.create('user', { users: getDataFromBD() })
-//     },
-//   })
-// }

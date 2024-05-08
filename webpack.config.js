@@ -17,6 +17,15 @@ module.exports = {
         use: ['babel-loader'],
       },
       {
+        test: /\.(jpg|png|gif|woff|eot|ttf|svg)/,
+        use: {
+          loader: 'url-loader', // this need file-loader
+          options: {
+            limit: 50000,
+          },
+        },
+      },
+      {
         test: /\.(s*)css$/i,
         use: [
           {

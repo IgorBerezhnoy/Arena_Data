@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import { clsx } from 'clsx'
 
 import s from './header.module.css'
@@ -8,7 +10,7 @@ import { Header } from './header'
 
 type Props = {}
 
-export const MainHeader = ({}: Props) => {
+export const MainHeader = memo(({}: Props) => {
   return (
     <Header className={clsx(s.mainHeader)}>
       <div className={s.logoAndIcon}>
@@ -34,4 +36,4 @@ export const MainHeader = ({}: Props) => {
       </div>
     </Header>
   )
-}
+})
